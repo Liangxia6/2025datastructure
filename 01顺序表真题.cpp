@@ -1,4 +1,4 @@
-#include "线性表.h"
+#include"01顺序表.h"
 
 void fun10(SeqList &L, int p){
     reverse(L, 1, L.length);

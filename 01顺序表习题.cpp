@@ -1,4 +1,4 @@
-#include"线性表.h"
+#include"01顺序表.h"
 
 int fun1(SeqList &L){
     if(L.length == 0)

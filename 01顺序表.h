@@ -2,13 +2,13 @@
 #include<cmath>
 #include<algorithm>
 
-#define macxSize 50
+#define maxcSize 50
 #define initSize 100
 #define elemType int
 
 // 静态分配的定义
 typedef struct SqList{
-    elemType data[macxSize];
+    elemType data[maxcSize];
     int length;
 }SqList;
 
