@@ -151,3 +151,46 @@ void fun9(LinkList &L1, LinkList &L2){
         temp2 = temp2->next;
     }
 }
+
+
+bool fun10(LinkList &L1, LinkList &L2){
+    LNode* temp1 = L1;
+    LNode* temp2 = L2;
+    while(L1->next->data != L2->next->data && L1->next != NULL)
+        L1 = L1->next;
+    if(L2->next == NULL)
+        return false;
+    while(L2->next != NULL){
+        L1 = L1->next;
+        L2 = L2->next;
+        if(L1->data != L2->data)
+            return false;
+    }
+    return true;
+}
+
+
+bool fun11(DLinkList &L){
+    DNode* head = L->next;
+    DNode* end = L->prior;
+    while(head->next != end){
+        if(head->data != end->data)
+            return false;
+        head = head->next;
+        end = end->prior;
+    }
+    return true;
+}
+
+
+bool fun12(DLinkList &L1, DLinkList &L2){
+    DNode* temp1 = L1;
+    DNode* temp2 = L2;
+    temp1->prior->next = temp2->next;
+    temp2->prior->next = temp1;
+    temp2->next->prior = temp1->prior;
+    temp1->prior = temp2->prior;
+}
+
+
+
