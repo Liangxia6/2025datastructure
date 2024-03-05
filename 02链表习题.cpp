@@ -193,4 +193,80 @@ bool fun12(DLinkList &L1, DLinkList &L2){
 }
 
 
+typedef struct fNode{
+    elemType data;
+    struct fNode* pre;
+    struct fNode* next;
+    int freq;
+}fNode, *fLinkList;
+fNode* fun13(fLinkList &L, elemType e){
+    fNode* temp = L->next;
+    while( temp != NULL && temp->data != e)
+        temp = temp->next;
+    temp->pre++;
+    fNode* t = temp;
+    while(temp->pre != L && temp->pre->pre <= temp->pre)
+        temp = temp->pre;
+    t->pre->next = t->next;
+    t->next->pre = t->pre;
+    t->pre = temp->pre;
+    t->next = temp;
+    temp->pre->next = t;
+    temp->pre = t;
+}
+
+
+void fun14(LinkList &L, int k){
+    LNode* temp = L->next;
+    int i = 1;
+    while(temp->next != NULL){
+        temp = temp->next;
+        i++;
+    }
+    LNode* t = L->next;
+    LNode* t2 = L;
+    while(i - k > 0){
+        t = t->next;
+        t2 = t2->next;
+        i--;
+    }
+    temp->next = L->next;
+    L->next = t;
+    t2->next = NULL;
+}
+
+
+bool fun15(LinkList &L){
+    LNode* temp1 = L->next;
+    LNode* temp2 = L->next->next;
+    while(temp1 != temp2 && temp2->next != NULL && temp2 != NULL){
+        temp1 = temp1->next;
+        temp2 = temp2->next->next;
+    }
+    if(temp2->next == NULL|| temp2 == NULL)
+        return false;
+    return true;
+}
+
+// 不含头节点
+elemType fun16(LinkList &L){
+    LNode* low = L;
+    LNode* high = L;
+    while(high->next != NULL){
+        low = low->next;
+        high = high->next->next;
+    }
+    reverse(low);
+    low = low->next;
+    LNode* t = L;
+    elemType max = t->data + low->data;
+    while(L->next != NULL){
+        t = t->next;
+        low = low->next;
+        if(t->data + low->data > max)
+            max = t->data + low->data;
+    }
+    return max;
+}
+
 

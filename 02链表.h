@@ -122,6 +122,17 @@ void printList(Node &L){
 }
 
 
+// 单链表原地逆置
+void reverse(LinkList &L){
+    LNode* begin = L->next;
+    LNode* end = L->next->next;
+    while(end->next != NULL){
+        begin->next = end->next;
+        end->next = L->next;
+        L->next = end;
+        end = begin->next;
+    }
+}
 
 
 // 双链表的定义
