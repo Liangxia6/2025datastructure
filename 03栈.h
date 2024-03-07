@@ -49,6 +49,14 @@ elemType pop(SqStack &S){
 }
 
 
+// 读栈顶元素
+elemType getTop(SqStack &S){
+    if(S.top == -1)
+        return NULL;
+    return S.data[S.top + 1];
+}
+
+
 
 // 链栈结点定义
 typedef struct LNode{
@@ -91,3 +99,6 @@ elemType pop2(LinkStack &S){
     free(t);
     return ans;
 }
+
+
+// 读栈顶元素
