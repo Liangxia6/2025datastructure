@@ -7,7 +7,7 @@
 #define elemType int
 
 
-// 顺序队列定义(队尾指向最后一个元素)
+// 顺序队列定义(队尾指向最后一个元素下一个)
 typedef struct SqQueue{
     elemType data[maxcSize];
     int front;

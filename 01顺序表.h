@@ -11,7 +11,7 @@ typedef struct SqList{
     elemType data[maxcSize];
     int length;
 }SqList;
-
+    
 // 快速写法
 // int A[macxSize];
 // int n;

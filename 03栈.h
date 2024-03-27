@@ -10,7 +10,7 @@
 typedef struct SqStack{
     elemType data[maxcSize];
     int top;  
-};
+}SqStack;
 
 // 快速写法
 // int stack[maxcSize]; int top = -1;  
